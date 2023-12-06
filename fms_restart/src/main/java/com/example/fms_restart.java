@@ -23,7 +23,7 @@ import com.util.system_parameters;
 public class fms_restart 
 {
     private void objset(){
-        object_list.jfr.setSize(600,800);
+        object_list.jfr.setSize(800,600);
         object_list.jfr.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         object_list.jfr.setTitle(system_parameters.system_name);
         object_list.jfr.setLayout(new GridBagLayout());
@@ -380,6 +380,9 @@ public class fms_restart
         for(int i=0 ; i<object_list.jbt.length ; i++){
             object_list.GUIcomp.add(object_list.jbt[i]);
         }
+        
+        //handel progressbar
+        object_list.GUIcomp.add(object_list.jpb_progress);
 
         //add on frame
         for(int i=0 ; i<object_list.GUIcomp.size() ; i++){

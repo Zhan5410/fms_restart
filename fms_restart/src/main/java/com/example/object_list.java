@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -119,4 +120,6 @@ public class object_list {
                                                     jbt_decode
 
     };
+
+    static JProgressBar jpb_progress = new JProgressBar();
 }
