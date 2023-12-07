@@ -55,37 +55,37 @@ public class system_parameters {
     public static final int gbc[][] = { {0,0,1,1,0,0,NONE,WEST},    //jlb_filepathway
                                         {0,1,1,1,0,0,NONE,WEST},    //jlb_fileinformation
                                         {0,12,1,1,0,0,NONE,WEST},   //jlb_filecontent
-                                        {1,9,1,1,0,0,NONE,WEST},  //jlb_textforecolor
+                                        {1,9,1,1,0,0,NONE,WEST},    //jlb_textforecolor
                                         {3,9,1,1,0,0,NONE,CENTER},  //jlb_textbackcolor
-                                        {1,10,1,1,0,0,NONE,WEST}, //jlb_textsize
+                                        {1,10,1,1,0,0,NONE,WEST},   //jlb_textsize
                                         {5,10,1,1,0,0,NONE,CENTER}, //jlb_textsizevalue
                                         {1,0,8,1,1,0,BOTH,WEST},    //jtf_filepathway
-                                        {1,1,8,5,1,1,BOTH,WEST},  //jsp_fileinformation
-                                        {1,12,8,5,1,1,BOTH,WEST}, //jsp_filecontent
-                                        {6,6,3,4,0,0,BOTH,WEST},  //jsp_jl
-                                        {1,6,1,1,1,0,BOTH,WEST},  //jcb_filesize
-                                        {2,6,1,1,1,0,BOTH,WEST},  //jcb_isfile
+                                        {1,1,8,5,1,1,BOTH,WEST},    //jsp_fileinformation
+                                        {1,12,8,5,1,1,BOTH,WEST},   //jsp_filecontent
+                                        {6,6,3,4,0,0,BOTH,WEST},    //jsp_jl
+                                        {1,6,1,1,1,0,BOTH,WEST},    //jcb_filesize
+                                        {2,6,1,1,1,0,BOTH,WEST},    //jcb_isfile
                                         {3,6,1,1,1,0,BOTH,CENTER},  //jcb_isdir
-                                        {4,6,2,1,1,0,BOTH,WEST},  //jcb_canread
-                                        {1,7,1,1,1,0,BOTH,WEST},  //jcb_canwrite
-                                        {2,7,1,1,1,0,BOTH,WEST},  //jcb_ishidden
+                                        {4,6,2,1,1,0,BOTH,WEST},    //jcb_canread
+                                        {1,7,1,1,1,0,BOTH,WEST},    //jcb_canwrite
+                                        {2,7,1,1,1,0,BOTH,WEST},    //jcb_ishidden
                                         {3,7,1,1,1,0,BOTH,CENTER},  //jcb_lastmodify
-                                        {4,7,2,1,1,0,BOTH,WEST},  //jcb_filename
-                                        {1,8,1,1,1,0,BOTH,WEST},  //jcb_filepathway
-                                        {2,8,1,1,1,0,BOTH,WEST},  //jcb_fileabosptahway
+                                        {4,7,2,1,1,0,BOTH,WEST},    //jcb_filename
+                                        {1,8,1,1,1,0,BOTH,WEST},    //jcb_filepathway
+                                        {2,8,1,1,1,0,BOTH,WEST},    //jcb_fileabosptahway
                                         {3,8,1,1,1,0,BOTH,CENTER},  //jrb_style1
-                                        {4,8,1,1,1,0,BOTH,WEST},  //jrb_style2
-                                        {5,8,1,1,1,0,BOTH,WEST},  //jrb_usersetting
-                                        {2,9,1,1,1,0,BOTH,WEST},  //jcombo_textforecolor
-                                        {4,9,2,1,1,0,BOTH,WEST},  //jcombo_textbackcolor
-                                        {2,10,3,1,1,0,BOTH,WEST}, //jsl_textsize
-                                        {6,10,1,1,1,0,BOTH,WEST}, //jtb_bold
-                                        {7,10,1,1,1,0,BOTH,WEST}, //jtb_italics
+                                        {4,8,1,1,1,0,BOTH,WEST},    //jrb_style2
+                                        {5,8,1,1,1,0,BOTH,WEST},    //jrb_usersetting
+                                        {2,9,1,1,1,0,BOTH,WEST},    //jcombo_textforecolor
+                                        {4,9,2,1,1,0,BOTH,WEST},    //jcombo_textbackcolor
+                                        {2,10,3,1,1,0,BOTH,WEST},   //jsl_textsize
+                                        {6,10,1,1,1,0,BOTH,WEST},   //jtb_bold
+                                        {7,10,1,1,1,0,BOTH,WEST},   //jtb_italics
                                         {8,10,1,1,1,0,BOTH,WEST},   //jtb_underline
-                                        {1,11,1,1,0,0,BOTH,WEST}, //jbt_open
-                                        {2,11,1,1,0,0,BOTH,WEST}, //jbt_read
-                                        {3,11,1,1,1,0,BOTH,WEST}, //jbt_encode
-                                        {4,11,0,1,1,0,BOTH,WEST}, //jbt_decode
+                                        {1,11,1,1,0,0,BOTH,WEST},   //jbt_open
+                                        {2,11,1,1,0,0,BOTH,WEST},   //jbt_read
+                                        {3,11,1,1,1,0,BOTH,WEST},   //jbt_encode
+                                        {4,11,0,1,1,0,BOTH,WEST},   //jbt_decode
                                         {0,17,9,2,1,0,BOTH,WEST},   //jpb_pregress
     };
 

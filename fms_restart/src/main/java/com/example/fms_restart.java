@@ -28,18 +28,22 @@ public class fms_restart
         object_list.jfr.setTitle(system_parameters.system_name);
         object_list.jfr.setLayout(new GridBagLayout());
 
+        //set label_text
         for(int i=0 ; i<object_list.jlb.length ; i++){
             object_list.jlb[i].setText(system_parameters.labeltext[i]);
         }
 
+        //set combobox_text 
         for(int i=0 ; i<object_list.jcb.length ; i++){
             object_list.jcb[i].setText(system_parameters.jcbtext[i]);
         }
 
+        //set radiobutton_text
         for(int i=0 ; i<object_list.jrb.length ; i++){
             object_list.jrb[i].setText(system_parameters.radiobuttontext[i]);
         }
 
+        //set radiobutton_list
         for(int i=0 ; i<system_parameters.combolist.length ; i++){
             object_list.jcombo_textforecolor.addItem(system_parameters.combolist[i]);
             object_list.jcombo_textbackcolor.addItem(system_parameters.combolist[i]);
@@ -47,17 +51,25 @@ public class fms_restart
 
         object_list.jl.setListData(system_parameters.listtext);
 
+        //set jscrollpanel
         object_list.jsl_textsize.setMinimum(0);
         object_list.jsl_textsize.setMaximum(100);
         object_list.jsl_textsize.setValue(12);
 
+        //set togglebutton
         object_list.jtb_bold.setText("B");
         object_list.jtb_italics.setText("I");
-        object_list.jtb_underline.setText("U");
+        object_list.jtb_underline.setText("B & I");
 
+        //set button_text
         for(int i=0 ; i<object_list.jbt.length ; i++){
             object_list.jbt[i].setText(system_parameters.buttontext[i]);
         }
+
+        
+        object_list.jpb_progress.setStringPainted(true);
+
+        object_list.jpb_progress.setString("資料讀取中");
 
     }
 //*========================================================================================================================================= */
@@ -196,9 +208,31 @@ public class fms_restart
                 sb.append(system_parameters.jcbtext[8] + "：" + file.getPath() + "\n");
                 sb.append(system_parameters.jcbtext[9] + "：" + file.getAbsolutePath() + "\n");
 
+                readdata(object_list.jtf_filepathway.getText());
                 object_list.jta_fileinformation.setText(sb.toString());
-                object_list.jta_filecontent.setText((readdata(object_list.jtf_filepathway.getText())).toString());
             }
+        });
+
+        //button_encode
+        object_list.jbt_encode.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String util = Encode.encode(object_list.jta_filecontent.getText());
+                object_list.jta_filecontent.setText(util);
+            }
+            
+        });
+
+        //button_decode
+        object_list.jbt_decode.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String util1 = Decode.decode(object_list.jta_filecontent.getText());
+                object_list.jta_filecontent.setText(util1);
+            }
+            
         });
 
         //slider
@@ -252,7 +286,7 @@ public class fms_restart
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Font font = object_list.jta_filecontent.getFont().deriveFont(object_list.jta_filecontent.getFont().getStyle()^Font.HANGING_BASELINE);
+                Font font = object_list.jta_filecontent.getFont().deriveFont(object_list.jta_filecontent.getFont().getStyle()^Font.BOLD^Font.ITALIC);
                 object_list.jta_filecontent.setFont(font);
                 object_list.jta_fileinformation.setFont(font);
             }
@@ -291,21 +325,43 @@ public class fms_restart
         return data;
     }
 
-    //button_read
-    private StringBuffer readdata(String path){
+    //for button_read
+    private void readdata(String path){
         StringBuffer sb = new StringBuffer();
-        try {
-             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
-            String text = "";
 
-            while ((text = br.readLine()) != null) {
-                sb.append(text + "\n");
+        Thread thread = new Thread(){
+            public void run(){
+                try {
+                    BufferedReader br = new BufferedReader(new FileReader(new File(path)));
+                    String text = "";
+                    int num_now = 1;
+                    int num_count = 0;
+
+                    while ((text = br.readLine()) != null) {
+                        num_count ++ ;
+                    }
+
+                    BufferedReader b = new BufferedReader(new FileReader(new File(path)));
+                    while ((text = b.readLine()) != null) {
+                        sb.append(text + "\n");
+                        Thread.sleep(10);
+                        object_list.jpb_progress.setValue((int)(num_now/1.0/num_count*10));
+                        object_list.jpb_progress.setString(String.valueOf(object_list.jpb_progress.getValue()) + "% 進度中");
+                        num_now++;
+                    }
+
+                    object_list.jta_filecontent.setText(sb.toString());
+                    object_list.jpb_progress.setString("資料讀取完畢");
+                    br.close();
+                    b.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return sb;
+        };
+        thread.start();
+
     };
 
     //change_color
